@@ -3,6 +3,10 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import HomePage from './HomePage';
 import BookingPage from './BookingPage';
 import ConfirmedBooking from './ConfirmedBooking';
+import MenuPage from './MenuPage';
+import OrderOnlinePage from './OrderOnlinePage';
+import LoginPage from './LoginPage';
+import ScrollToTop from './ScrollToTop';
 import { submitAPI } from './api';
 import { initializeTimes, updateTimes } from './bookingTimesReducer';
 
@@ -54,6 +58,7 @@ function Main() {
 
   return (
     <main className="main-content" role="main">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -85,15 +90,9 @@ function Main() {
             />
           }
         />
-        <Route
-          path="/login"
-          element={
-            <div className="container" style={{ padding: '5rem 1rem', textAlign: 'center' }}>
-              <h2>Customer Login</h2>
-              <p>Welcome back! Online customer portal is currently in preview.</p>
-            </div>
-          }
-        />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/order-online" element={<OrderOnlinePage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </main>
   );

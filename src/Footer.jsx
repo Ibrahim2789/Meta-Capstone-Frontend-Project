@@ -3,10 +3,10 @@ import logo from './assets/Logo.png';
 
 function Footer() {
   return (
-    <footer className="footer-site">
+    <footer className="footer-site" role="contentinfo">
       <div className="container footer-container">
         <div className="footer-grid">
-          {/* Logo Card / Column */}
+          {/* Logo Card */}
           <div className="footer-logo-box">
             <Link to="/" aria-label="Little Lemon Home">
               <img src={logo} alt="Little Lemon logo" className="footer-logo" />
@@ -24,13 +24,13 @@ function Footer() {
                 <a href="/#about">About</a>
               </li>
               <li>
-                <a href="/#menu">Menu</a>
+                <Link to="/menu">Menu</Link>
               </li>
               <li>
                 <Link to="/reservations">Reservations</Link>
               </li>
               <li>
-                <a href="/#order-online">Order Online</a>
+                <Link to="/order-online">Order Online</Link>
               </li>
               <li>
                 <Link to="/login">Login</Link>

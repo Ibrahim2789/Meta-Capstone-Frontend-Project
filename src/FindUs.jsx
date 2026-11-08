@@ -4,16 +4,19 @@ function FindUs() {
       <div className="container">
         <h2 className="section-title">Find Us</h2>
         <div className="find-us-grid">
-          {/* Map Display Card */}
+          {/* Interactive Map Card */}
           <div className="map-card" role="region" aria-label="Restaurant Location Map">
-            <div className="map-visual">
-              <div className="map-overlay">
-                <div className="map-marker" title="Little Lemon Chicago">
-                  <span className="marker-pin" aria-hidden="true">📍</span>
-                  <span className="marker-label">Little Lemon</span>
-                </div>
-              </div>
-            </div>
+            <iframe
+              title="Little Lemon Chicago Location Map"
+              className="map-iframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.3168297014467!2d-87.63851502353119!3d41.89360876421884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2cb40e6c6e75%3A0x7d6f0c4bbd51381!2s263%20W%20Ontario%20St%2C%20Chicago%2C%20IL%2060654!5e0!3m2!1sen!2sus!4v1715000000000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
             <div className="map-badge">Chicago, Illinois</div>
           </div>
 
