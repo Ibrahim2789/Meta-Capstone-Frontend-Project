@@ -1,6 +1,7 @@
 import { useReducer, useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import HomePage from './HomePage';
+import AboutPage from './AboutPage';
 import BookingPage from './BookingPage';
 import ConfirmedBooking from './ConfirmedBooking';
 import MenuPage from './MenuPage';
@@ -61,6 +62,7 @@ function Main() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route
           path="/reservations"
           element={

@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from './assets/Logo.png';
 
 function Navbar() {
   const location = useLocation();
-  const navigate = useNavigate();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -13,26 +12,6 @@ function Navbar() {
 
   const closeMenu = () => {
     setIsMobileOpen(false);
-  };
-
-  const handleSectionClick = (e, sectionId) => {
-    e.preventDefault();
-    closeMenu();
-
-    if (location.pathname === '/') {
-      const el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      navigate('/');
-      setTimeout(() => {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    }
   };
 
   return (
@@ -66,13 +45,13 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <a
-                href="#about"
-                className="nav-item-link"
-                onClick={(e) => handleSectionClick(e, 'about')}
+              <Link
+                to="/about"
+                className={`nav-item-link ${location.pathname === '/about' ? 'active-link' : ''}`}
+                onClick={closeMenu}
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
               <Link
