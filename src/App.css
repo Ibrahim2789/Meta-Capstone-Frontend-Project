@@ -235,14 +235,22 @@
   cursor: pointer;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-primary:hover,
 .btn-reserve-cta:hover {
   background-color: #e5be0b;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 18px rgba(244, 206, 20, 0.45);
+}
+
+.btn-primary:active,
+.btn-reserve-cta:active,
+.btn-secondary:active,
+.btn-login:active,
+.btn-confirm-reservation:active:not(:disabled) {
+  transform: scale(0.97);
 }
 
 .hero-image,
@@ -254,6 +262,14 @@
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-lg);
   margin: 0 auto;
+  animation: heroFloat 5s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image:hover,
+.booking-hero-img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
 }
 
 /* --------------------------------------------------------------------------
@@ -319,12 +335,13 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .special-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(73, 94, 87, 0.15);
+  border-color: #dfc2c2;
 }
 
 .special-card-img-wrapper {
@@ -337,11 +354,11 @@
   height: 100%;
   object-fit: cover;
   border-radius: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .special-card:hover .special-card-img {
-  transform: scale(1.04);
+  transform: scale(1.06);
 }
 
 .special-card-body {
@@ -386,6 +403,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  transition: color 0.25s ease;
 }
 
 .order-delivery-link:hover {
@@ -394,6 +412,12 @@
 
 .delivery-icon {
   font-size: 1.15rem;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.order-delivery-link:hover .delivery-icon {
+  transform: translateX(6px) scale(1.15);
 }
 
 /* --------------------------------------------------------------------------
@@ -437,6 +461,12 @@
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 
 .rating-stars {
@@ -444,6 +474,12 @@
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   letter-spacing: 2px;
+  transition: letter-spacing 0.25s ease, transform 0.25s ease;
+}
+
+.testimonial-card:hover .rating-stars {
+  letter-spacing: 3px;
+  transform: scale(1.02);
 }
 
 .user-profile {
@@ -529,6 +565,7 @@
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-md);
   position: absolute;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .about-img-top {
@@ -542,6 +579,16 @@
   left: 0;
   z-index: 2;
   border: 4px solid var(--neutral-white);
+}
+
+.about-images-wrapper:hover .about-img-top {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+}
+
+.about-images-wrapper:hover .about-img-bottom {
+  transform: translateY(6px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
 }
 
 /* ==========================================================================
@@ -710,6 +757,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   margin-top: 0.25rem;
+  animation: errorSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 input[aria-invalid='true'],
@@ -736,6 +784,12 @@ textarea[aria-invalid='true'] {
   box-shadow: var(--shadow-lg);
   position: sticky;
   top: 90px;
+  animation: summarySlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reservation-summary-card:hover {
+  box-shadow: 0 16px 36px rgba(90, 16, 23, 0.32);
 }
 
 .summary-header h3 {
@@ -938,6 +992,7 @@ textarea[aria-invalid='true'] {
   justify-content: center;
   margin: 0 auto 1.5rem;
   box-shadow: 0 4px 14px rgba(73, 94, 87, 0.3);
+  animation: successPop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .confirmation-card h1 {
@@ -1911,4 +1966,149 @@ textarea[aria-invalid='true'] {
     text-align: center;
   }
 }
+
+/* ==========================================================================
+   Global Animations & Interactive Transitions
+   ========================================================================== */
+
+/* Page Route Transition */
+.main-content > * {
+  animation: pageFadeSlide 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Staggered Fade In */
+.hero-brand-name {
+  animation: heroFadeIn 0.55s ease-out forwards;
+}
+
+.hero-location-name {
+  animation: heroFadeIn 0.7s ease-out forwards;
+}
+
+.hero-desc,
+.hero-tagline {
+  animation: heroFadeIn 0.85s ease-out forwards;
+}
+
+.btn-reserve-cta {
+  animation: heroFadeIn 1s ease-out forwards;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating Hero Image Animation */
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Summary Slide In */
+@keyframes summarySlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Error Slide In */
+@keyframes errorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Success Checkmark Pop */
+@keyframes successPop {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.15) rotate(4deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Pulse Glow for Featured Elements */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 4px 14px rgba(244, 206, 20, 0.4);
+  }
+  50% {
+    box-shadow: 0 6px 22px rgba(244, 206, 20, 0.65);
+  }
+}
+
+/* Card Badge Subtle Pulse */
+.dish-tag-badge,
+.price-tag {
+  transition: transform 0.2s ease;
+}
+
+.menu-dish-card:hover .dish-tag-badge,
+.special-card:hover .price-tag {
+  transform: scale(1.05);
+}
+
+/* Category Filter Buttons Smooth Transition */
+.btn-category-filter {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-category-filter:hover {
+  transform: translateY(-2px);
+}
+
+.btn-category-filter:active {
+  transform: scale(0.96);
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 
