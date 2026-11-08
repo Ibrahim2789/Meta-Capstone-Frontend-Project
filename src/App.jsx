@@ -1,5 +1,4 @@
-import Header from './Header';
-import Nav from './Nav';
+import Navbar from './Navbar';
 import Main from './Main';
 import Footer from './Footer';
 import './App.css';
@@ -7,8 +6,7 @@ import './App.css';
 function App() {
   return (
     <>
-      <Header />
-      <Nav />
+      <Navbar />
       <Main />
       <Footer />
     </>
